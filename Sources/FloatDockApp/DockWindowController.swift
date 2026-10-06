@@ -42,7 +42,7 @@ final class DockWindowController: NSObject, NSPopoverDelegate {
         self.hosting = hosting
         hosting.frame = NSRect(origin: .zero, size: layout.size)
         hosting.autoresizingMask = [.width, .height]
-        let surface = DockSurfaceView(frame: hosting.frame, cornerRadius: layout.cornerRadius, foreground: hosting)
+        let surface = DockSurfaceView(frame: hosting.frame, foreground: hosting)
         dockSurface = surface
         // Explicit children preserve the four-button contract at every material
         // strength, including when the decorative glass is completely hidden.
@@ -119,7 +119,6 @@ final class DockWindowController: NSObject, NSPopoverDelegate {
         let layout = design.layout
         panel.setContentSize(layout.size)
         dockSurface.frame = NSRect(origin: .zero, size: layout.size)
-        dockSurface.cornerRadius = layout.cornerRadius
         hosting.frame = NSRect(origin: .zero, size: layout.size)
         place()
         // Existing representables re-register their actual AppKit frames as the
