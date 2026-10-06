@@ -11,17 +11,20 @@ final class DockSurfaceView: NSView {
     private var transparency = 1.0
     private var glassStrength = 1.0
 
-    var cornerRadius: CGFloat {
-        didSet { needsLayout = true }
-    }
+    private let cornerRadius = DockLayout.nativeCornerRadius
 
-    init(frame: NSRect, cornerRadius: CGFloat, foreground: NSView) {
-        self.cornerRadius = cornerRadius
+    init(frame: NSRect, foreground: NSView) {
         self.foreground = foreground
         super.init(frame: frame)
         wantsLayer = true
         layer?.addSublayer(backing)
         glass.style = .clear
+        // Native glass's built-in radius has a longer continuous transition.
+        // Clip rectangular glass to the reference Dock's fixed circular outline.
+        glass.cornerRadius = 0
+        glass.wantsLayer = true
+        glass.layer?.cornerCurve = .circular
+        glass.layer?.masksToBounds = true
         glass.setAccessibilityElement(false)
         let emptyContent = NSView(frame: bounds)
         emptyContent.setAccessibilityElement(false)
@@ -50,10 +53,9 @@ final class DockSurfaceView: NSView {
         super.layout()
         withoutImplicitAnimations {
             backing.frame = bounds
-            backing.path = CGPath(roundedRect: backing.bounds, cornerWidth: cornerRadius,
-                                  cornerHeight: cornerRadius, transform: nil)
+            backing.path = outline
             glass.frame = bounds
-            glass.cornerRadius = cornerRadius
+            glass.layer?.cornerRadius = cornerRadius
             foreground.frame = bounds
         }
     }
@@ -70,8 +72,14 @@ final class DockSurfaceView: NSView {
 
     override func hitTest(_ point: NSPoint) -> NSView? {
         let local = convert(point, from: superview)
-        guard NSBezierPath(roundedRect: bounds, xRadius: cornerRadius, yRadius: cornerRadius).contains(local) else { return nil }
+        guard outline.contains(local) else { return nil }
         return super.hitTest(point)
+    }
+
+    // The native reference joins the straight edges with a short circular arc.
+    private var outline: CGPath {
+        CGPath(roundedRect: bounds, cornerWidth: cornerRadius,
+               cornerHeight: cornerRadius, transform: nil)
     }
 
     var materialState: [String: Double] {

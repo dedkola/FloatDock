@@ -240,7 +240,8 @@ private struct DesignMiniPreview: View {
             }
             .padding(design.layout.padding)
             .frame(width: design.layout.size.width, height: design.layout.size.height)
-            .glassEffect(.clear, in: RoundedRectangle(cornerRadius: design.layout.cornerRadius, style: .continuous))
+            .glassEffect(.clear, in: Rectangle())
+            .clipShape(RoundedRectangle(cornerRadius: design.layout.cornerRadius, style: .circular))
             .scaleEffect(scale)
             .frame(width: design.layout.size.width * scale, height: design.layout.size.height * scale)
         }

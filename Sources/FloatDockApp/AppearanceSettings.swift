@@ -30,28 +30,34 @@ enum DockDesign: String, CaseIterable, Identifiable, Sendable {
     }
 
     var layout: DockLayout {
+        // Native hosting adds 5 pt at each edge. These insets halve the rendered
+        // margins and gaps while the original outer dock dimensions stay fixed.
         switch self {
         case .current:
-            DockLayout(tileSize: CGSize(width: 80, height: 87), padding: 9, spacing: 8, cornerRadius: 29, tileRadius: 21)
+            DockLayout(size: CGSize(width: 98, height: 390), padding: 2, spacing: 4, tileRadius: 21)
         case .float:
-            DockLayout(tileSize: CGSize(width: 78, height: 87), padding: 9, spacing: 8, cornerRadius: 29, tileRadius: 21)
+            DockLayout(size: CGSize(width: 96, height: 390), padding: 2, spacing: 4, tileRadius: 21)
         case .orbit:
-            DockLayout(tileSize: CGSize(width: 74, height: 74), padding: 10, spacing: 12, cornerRadius: 45, tileRadius: 37)
+            DockLayout(size: CGSize(width: 94, height: 352), padding: 2.5, spacing: 6, tileRadius: 37)
         case .ribbon:
-            DockLayout(tileSize: CGSize(width: 96, height: 65), padding: 8, spacing: 5, cornerRadius: 26, tileRadius: 18)
+            DockLayout(size: CGSize(width: 112, height: 291), padding: 1.5, spacing: 2.5, tileRadius: 18)
         }
     }
 }
 
 struct DockLayout: Equatable, Sendable {
-    let tileSize: CGSize
+    let size: CGSize
     let padding: CGFloat
     let spacing: CGFloat
-    let cornerRadius: CGFloat
     let tileRadius: CGFloat
 
-    var size: CGSize {
-        CGSize(width: tileSize.width + 2 * padding, height: 4 * tileSize.height + 3 * spacing + 2 * padding)
+    /// The native Dock reference has a 31 px corner at 2x screenshot density.
+    /// Keep its physical radius fixed, independent of the dock's width or design.
+    static let nativeCornerRadius: CGFloat = 15.5
+    var cornerRadius: CGFloat { Self.nativeCornerRadius }
+
+    var tileSize: CGSize {
+        CGSize(width: size.width - 2 * padding, height: (size.height - 3 * spacing - 2 * padding) / 4)
     }
 }
 

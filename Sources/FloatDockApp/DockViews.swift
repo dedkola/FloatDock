@@ -70,12 +70,7 @@ struct MetricTile: View {
         .focusable()
         .focusEffectDisabled()
         .frame(width: design.layout.tileSize.width, height: design.layout.tileSize.height)
-        // Keep magnification inside the real panel bounds, including Ribbon.
-        .scaleEffect(hovering && !reduceMotion ? 1.04 : 1, anchor: .trailing)
-        .offset(x: hovering && !reduceMotion ? -1 : 0)
-        .zIndex(hovering ? 1 : 0)
         .onHover { hovering = $0 }
-        .animation(reduceMotion ? nil : .spring(response: 0.32, dampingFraction: 0.78), value: hovering)
         .help(kind.title)
         .accessibilityLabel(kind.title)
         .accessibilityValue(store.accessibilityValue(for: kind))
