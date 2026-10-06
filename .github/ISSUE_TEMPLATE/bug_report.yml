@@ -1,0 +1,87 @@
+name: Bug report
+description: Something is wrong — a wrong reading, a crash, or misbehaviour
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. The single most useful thing you can attach is the
+        **probe output** below — it shows exactly what each metric read and in
+        which state, which usually pinpoints the problem immediately.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you see, and what did you expect instead?
+      placeholder: The GPU tile shows "unavailable" on my M2 Air, but Activity Monitor reports GPU usage.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Launch FloatDock
+        2. Open Settings → Appearance
+        3. Toggle ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: probe
+    attributes:
+      label: Probe output
+      description: |
+        Run this and paste the result. If the app won't build for you, say so and skip it.
+      render: json
+      placeholder: |
+        ./build/FloatDock.app/Contents/MacOS/FloatDock --probe 4
+    validations:
+      required: false
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "26.0 (Tahoe)"
+    validations:
+      required: true
+
+  - type: input
+    id: hardware
+    attributes:
+      label: Mac model and chip
+      placeholder: "MacBook Pro 14-inch, M4 Pro"
+    validations:
+      required: true
+
+  - type: input
+    id: floatdock-version
+    attributes:
+      label: FloatDock version
+      description: Shown in the app, or the commit you built from
+      placeholder: "0.1.0 / commit abc1234"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: build
+    attributes:
+      label: Which build?
+      options:
+        - Built from source (release)
+        - Built from source (debug)
+        - Sandbox variant (--sandbox)
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Screenshots, logs, console output, what you already tried.
+    validations:
+      required: false

@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    # Triggers on both while the default branch is being renamed master -> main.
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build & test
+    # macOS 26 runners are generally available. The build scripts target arm64
+    # explicitly; if this job fails resolving the SDK, switch to macos-26-arm64.
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Show toolchain
+        run: |
+          xcode-select -p
+          swift --version
+          xcrun --sdk macosx --show-sdk-version
+
+      - name: Test
+        run: ./scripts/test.sh
+
+      - name: Build (debug)
+        run: ./scripts/build.sh debug
+
+      - name: Build (release)
+        run: ./scripts/build.sh release
+
+      - name: Probe smoke test
+        run: |
+          set -o pipefail
+          ./build/FloatDock.app/Contents/MacOS/FloatDock --probe 2 | tee probe.json
+          # The probe must emit valid JSON per sample.
+          python3 -c "import json,sys; [json.loads(l) for l in open('probe.json') if l.strip()]"
+
+      - name: Upload probe output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: probe-output
+          path: probe.json
+          if-no-files-found: ignore
