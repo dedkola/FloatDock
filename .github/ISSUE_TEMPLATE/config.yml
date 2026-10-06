@@ -3,6 +3,3 @@ contact_links:
   - name: Security vulnerability
     url: https://github.com/dedkola/FloatDock/security/advisories/new
     about: Please report security issues privately, not as a public issue.
-  - name: Question or idea
-    url: https://github.com/dedkola/FloatDock/discussions
-    about: For open-ended questions and general discussion.
