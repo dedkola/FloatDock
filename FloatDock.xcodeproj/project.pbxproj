@@ -1,0 +1,204 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0C000000000000000000001 /* FloatDockCore in Frameworks */ = {isa = PBXBuildFile; productRef = D0C000000000000000000025 /* FloatDockCore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D0C000000000000000000002 /* FloatDock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatDock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0C000000000000000000003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0C000000000000000000004 /* FloatDock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FloatDock.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D0C000000000000000000005 /* FloatDockApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			explicitFileTypes = {};
+			explicitFolders = ();
+			path = Sources/FloatDockApp;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0C000000000000000000006 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (D0C000000000000000000001 /* FloatDockCore in Frameworks */,);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0C000000000000000000007 = {
+			isa = PBXGroup;
+			children = (D0C000000000000000000005 /* FloatDockApp */, D0C000000000000000000008 /* Config */, D0C000000000000000000009 /* Products */,);
+			sourceTree = "<group>";
+		};
+		D0C000000000000000000008 /* Config */ = {
+			isa = PBXGroup;
+			children = (D0C000000000000000000003 /* Info.plist */, D0C000000000000000000004 /* FloatDock.entitlements */,);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		D0C000000000000000000009 /* Products */ = {
+			isa = PBXGroup;
+			children = (D0C000000000000000000002 /* FloatDock.app */,);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0C000000000000000000010 /* FloatDock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0C000000000000000000018 /* Build configuration list for PBXNativeTarget FloatDock */;
+			buildPhases = (D0C000000000000000000012 /* Sources */, D0C000000000000000000006 /* Frameworks */, D0C000000000000000000013 /* Resources */,);
+			buildRules = ();
+			dependencies = ();
+			fileSystemSynchronizedGroups = (D0C000000000000000000005 /* FloatDockApp */,);
+			name = FloatDock;
+			packageProductDependencies = (D0C000000000000000000025 /* FloatDockCore */,);
+			productName = FloatDock;
+			productReference = D0C000000000000000000002 /* FloatDock.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0C000000000000000000011 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {D0C000000000000000000010 = {CreatedOnToolsVersion = 27.0; }; };
+			};
+			buildConfigurationList = D0C000000000000000000017 /* Build configuration list for PBXProject FloatDock */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base,);
+			mainGroup = D0C000000000000000000007;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (D0C000000000000000000024 /* XCLocalSwiftPackageReference . */,);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D0C000000000000000000009 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (D0C000000000000000000010 /* FloatDock */,);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0C000000000000000000013 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0C000000000000000000012 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D0C000000000000000000019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)",);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D0C000000000000000000020 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D0C000000000000000000021 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				CODE_SIGN_ENTITLEMENTS = Config/FloatDock.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks",);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.floatdock.local;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		D0C000000000000000000022 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				CODE_SIGN_ENTITLEMENTS = Config/FloatDock.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks",);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.floatdock.local;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0C000000000000000000017 /* Build configuration list for PBXProject FloatDock */ = {isa = XCConfigurationList; buildConfigurations = (D0C000000000000000000019 /* Debug */, D0C000000000000000000020 /* Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		D0C000000000000000000018 /* Build configuration list for PBXNativeTarget FloatDock */ = {isa = XCConfigurationList; buildConfigurations = (D0C000000000000000000021 /* Debug */, D0C000000000000000000022 /* Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D0C000000000000000000024 /* XCLocalSwiftPackageReference . */ = {isa = XCLocalSwiftPackageReference; relativePath = .; };
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D0C000000000000000000025 /* FloatDockCore */ = {isa = XCSwiftPackageProductDependency; package = D0C000000000000000000024 /* XCLocalSwiftPackageReference . */; productName = FloatDockCore; };
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D0C000000000000000000011 /* Project object */;
+}
